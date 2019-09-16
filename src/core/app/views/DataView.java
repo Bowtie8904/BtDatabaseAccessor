@@ -167,7 +167,7 @@ public class DataView extends FxView
 
         SelectStatement select = this.db.select("tablename")
                                         .from(SqlValue.SYSTABLE)
-                                        .where("tabletype").equals("S")
+                                        .where("tabletype").equal("S")
                                         .orderBy("tablename").asc();
 
         if (filter != null && !filter.isBlank())
@@ -186,7 +186,7 @@ public class DataView extends FxView
 
         select = this.db.select("tablename")
                         .from(SqlValue.SYSTABLE)
-                        .where("tabletype").equals("T")
+                        .where("tabletype").equal("T")
                         .orderBy("tablename").asc();
 
         if (filter != null && !filter.isBlank())

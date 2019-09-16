@@ -125,7 +125,7 @@ public class SelectionView extends FxView
                    .set("database_path", dbPath)
                    .onDuplicateKey(this.db.update("recent_database")
                                           .set("timestamp", SqlValue.SYSTIMESTAMP, SqlType.TIMESTAMP)
-                                          .where("database_path").equals(dbPath)
+                                          .where("database_path").equal(dbPath)
                                           .commit())
                    .commit()
                    .execute();
@@ -155,7 +155,7 @@ public class SelectionView extends FxView
                 this.db = new RecentDatabase(config);
                 this.db.delete()
                        .from("recent_database")
-                       .where("database_path").equals(dbPath)
+                       .where("database_path").equal(dbPath)
                        .commit()
                        .execute();
             }
